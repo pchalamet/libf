@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "libf", "libf\libf.fsproj", "{0D841245-29FA-4BF1-9748-5375BD82C20E}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharp.Core", "..\FSharp.Core\FSharp.Core.fsproj", "{DED3BBD7-53F4-428A-8C9F-27968E768605}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D841245-29FA-4BF1-9748-5375BD82C20E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D841245-29FA-4BF1-9748-5375BD82C20E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D841245-29FA-4BF1-9748-5375BD82C20E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D841245-29FA-4BF1-9748-5375BD82C20E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DED3BBD7-53F4-428A-8C9F-27968E768605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DED3BBD7-53F4-428A-8C9F-27968E768605}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DED3BBD7-53F4-428A-8C9F-27968E768605}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DED3BBD7-53F4-428A-8C9F-27968E768605}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

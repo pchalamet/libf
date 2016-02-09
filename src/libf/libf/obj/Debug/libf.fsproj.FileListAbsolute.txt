@@ -1,0 +1,7 @@
+C:\src\libf\src\libf\libf\bin\Debug\libf.XML
+C:\src\libf\src\libf\libf\bin\Debug\libf.dll
+C:\src\libf\src\libf\libf\bin\Debug\libf.pdb
+C:\src\libf\src\libf\libf\bin\Debug\FSharp.Core.dll
+C:\src\libf\src\libf\libf\bin\Debug\FSharp.Core.xml
+C:\src\libf\src\libf\libf\obj\Debug\libf.dll
+C:\src\libf\src\libf\libf\obj\Debug\libf.pdb
