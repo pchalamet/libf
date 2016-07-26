@@ -9,6 +9,10 @@ val stdin : Unit -> Result<TextReader>
 
 val stdout : Unit -> Result<TextWriter>
 
-val readln : TextReader -> Result<string>
+val openRead : string -> Result<TextReader>
 
-val writeln : TextWriter -> string -> Result<TextWriter>
+val openWrite : string -> Result<TextWriter>
+
+val readln : TextReader -> string
+
+val writeln : TextWriter -> string -> unit

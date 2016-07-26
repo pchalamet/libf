@@ -5,26 +5,26 @@ open System.IO
 open std
 
 
-type TextReader = 
-    {
-        Stream : IO.TextReader
-    }
+type TextReader = Reader of System.IO.TextReader
 
-type TextWriter =
-    {
-        Stream : IO.TextWriter    
-    }
+type TextWriter = Writer of System.IO.TextWriter
 
 
 
-let stdin () = 
-    (fun () -> { TextReader.Stream = Console.In }) |> toResult
+let stdin () : Result<TextReader> = 
+    (fun () -> Reader Console.In) |> toResult
     
-let stdout () =
-    (fun () -> { TextWriter.Stream = Console.Out }) |> toResult 
+let stdout () : Result<TextWriter> =
+    (fun () -> Writer Console.Out) |> toResult 
 
-let readln (s : TextReader) : Result<string> =
-    s.Stream.ReadLine |> toResult
+let readln (TextReader.Reader stm) =
+    stm.ReadLine()
 
-let writeln (s : TextWriter) (m : string) : Result<TextWriter> =
-    (fun () -> s.Stream.WriteLine m; s) |> toResult
+let writeln (TextWriter.Writer stm ) (m : string) : unit =
+    stm.WriteLine(m)
+
+let openRead (f : string) : Result<TextReader> =
+    (fun () -> Reader (System.IO.File.OpenText(f))) |> toResult
+
+let openWrite (f : string) : Result<TextWriter> =
+    (fun () -> Writer (System.IO.File.CreateText(f))) |> toResult

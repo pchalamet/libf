@@ -19,16 +19,15 @@ let and_then f r =
     | Ok t -> try
                 Result.Ok (f t)
               with exn -> Result.Err exn
-    | x -> x
+    | Err e -> Result.Err e
 
 
 let unwrap_or_else f r =
     match r with
     | Ok t -> f t
-    | x -> x
+    | Err e -> Result.Err e
 
 let unwrap_or nt r =
     match r with
     | Ok t -> t
     | _ -> nt
-
