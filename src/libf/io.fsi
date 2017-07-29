@@ -5,13 +5,13 @@ type TextReader
 
 type TextWriter
 
-val stdin : Unit -> Result<TextReader>
+val stdin : Unit -> IoResult<TextReader>
 
-val stdout : Unit -> Result<TextWriter>
+val stdout : Unit -> IoResult<TextWriter>
 
-val openRead : string -> Result<TextReader>
+val openRead : string -> IoResult<TextReader>
 
-val openWrite : string -> Result<TextWriter>
+val openWrite : string -> IoResult<TextWriter>
 
 val readln : TextReader -> string
 

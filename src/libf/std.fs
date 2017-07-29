@@ -1,31 +1,29 @@
 ﻿module std
 
-type Result<'t> =
+type IoResult<'t> =
     | Ok of 't
     | Err of System.Exception
 
 let toResult f =
     try
-        Result.Ok (f())
-    with exn -> Result.Err exn
+        f() |> IoResult.Ok
+    with
+        exn -> exn |> IoResult.Err
 
-let ok (m : string) (r : Result<'t>) : 't =
+let ok (m : string) (r : IoResult<'t>) : 't =
     match r with
-    | Result.Ok t -> t
-    | Result.Err exn -> raise (System.Exception(m, exn))
+    | IoResult.Ok t -> t
+    | IoResult.Err exn -> raise (System.Exception(m, exn))
 
 let and_then f r =
     match r with
-    | Ok t -> try
-                Result.Ok (f t)
-              with exn -> Result.Err exn
-    | Err e -> Result.Err e
-
+    | Ok t -> (fun () -> f t) |> toResult
+    | Err e -> e |> IoResult.Err
 
 let unwrap_or_else f r =
     match r with
     | Ok t -> f t
-    | Err e -> Result.Err e
+    | Err e -> e |> IoResult.Err
 
 let unwrap_or nt r =
     match r with

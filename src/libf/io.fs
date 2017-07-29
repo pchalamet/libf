@@ -11,10 +11,10 @@ type TextWriter = Writer of System.IO.TextWriter
 
 
 
-let stdin () : Result<TextReader> = 
+let stdin () : IoResult<TextReader> = 
     (fun () -> Reader Console.In) |> toResult
     
-let stdout () : Result<TextWriter> =
+let stdout () : IoResult<TextWriter> =
     (fun () -> Writer Console.Out) |> toResult 
 
 let readln (TextReader.Reader stm) =
@@ -23,8 +23,8 @@ let readln (TextReader.Reader stm) =
 let writeln (TextWriter.Writer stm ) (m : string) : unit =
     stm.WriteLine(m)
 
-let openRead (f : string) : Result<TextReader> =
+let openRead (f : string) : IoResult<TextReader> =
     (fun () -> Reader (System.IO.File.OpenText(f))) |> toResult
 
-let openWrite (f : string) : Result<TextWriter> =
+let openWrite (f : string) : IoResult<TextWriter> =
     (fun () -> Writer (System.IO.File.CreateText(f))) |> toResult
