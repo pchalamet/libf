@@ -1,17 +1,20 @@
-﻿module io
-open std
+﻿module std.io
 
 type TextReader
 
 type TextWriter
 
-val stdin : Unit -> IoResult<TextReader>
+type Error
 
-val stdout : Unit -> IoResult<TextWriter>
+type Result<'t>
 
-val openRead : string -> IoResult<TextReader>
+val stdin : Unit -> Result<TextReader>
 
-val openWrite : string -> IoResult<TextWriter>
+val stdout : Unit -> Result<TextWriter>
+
+val openRead : string -> Result<TextReader>
+
+val openWrite : string -> Result<TextWriter>
 
 val readln : TextReader -> string
 

@@ -45,7 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
-    <Compile Include="std.fs" />
+    <Compile Include="result.fs" />
     <Compile Include="io.fsi" />
     <Compile Include="io.fs" />
   </ItemGroup>

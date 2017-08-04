@@ -1,20 +1,22 @@
-﻿module io
+﻿module std.io
 
 open System
 open System.IO
-open std
 
 
 type TextReader = Reader of System.IO.TextReader
 
 type TextWriter = Writer of System.IO.TextWriter
 
+type Error = int
+
+type Result<'t> = std.result<'t, Error>
 
 
-let stdin () : IoResult<TextReader> = 
+let stdin () : Result<TextReader> = 
     (fun () -> Reader Console.In) |> toResult
     
-let stdout () : IoResult<TextWriter> =
+let stdout () : Result<TextWriter> =
     (fun () -> Writer Console.Out) |> toResult 
 
 let readln (TextReader.Reader stm) =
@@ -23,8 +25,8 @@ let readln (TextReader.Reader stm) =
 let writeln (TextWriter.Writer stm ) (m : string) : unit =
     stm.WriteLine(m)
 
-let openRead (f : string) : IoResult<TextReader> =
+let openRead (f : string) : Result<TextReader> =
     (fun () -> Reader (System.IO.File.OpenText(f))) |> toResult
 
-let openWrite (f : string) : IoResult<TextWriter> =
+let openWrite (f : string) : Result<TextWriter> =
     (fun () -> Writer (System.IO.File.CreateText(f))) |> toResult
