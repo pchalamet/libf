@@ -3,21 +3,11 @@ open std
 open std.result
 
 
-let getValue (x : int) =
-    failwithf "toto"
-
-let printValue f =
-    try
-        let r = f()
-        printfn "%A" r
-    with    
-        exn -> printfn "%A" exn
-
 [<EntryPoint>]
 let main argv = 
 
-    let content = text.stdin()
-                  |> and_then text.readln
+    let content = io.stdin()
+                  |> and_then io.read_line
                   |> expect "read fail"
     printfn "%s" content
 
