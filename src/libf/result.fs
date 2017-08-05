@@ -9,9 +9,7 @@ let is_ok = function
             | Result.Ok _ -> true
             | Result.Err _ -> false
     
-let is_err = function
-            | Result.Ok _ -> false
-            | Result.Err _ -> true
+let is_err r = r |> is_ok |> not
 
 let ok = function
          | Result.Ok x -> x |> Some
