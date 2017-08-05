@@ -1,0 +1,11 @@
+*.user
+*.suo
+*.cache
+*.ncrunchsolution
+*.dgml
+bin
+obj
+.vs
+packages/
+**.ncrunchproject
+*~
